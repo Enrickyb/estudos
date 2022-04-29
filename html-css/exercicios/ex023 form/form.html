@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pbr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <style>
+        body {
+            font-size: 2em;
+            
+        }
+    </style>
+</head>
+<!-- <body>          
+    method=  'GET' (ENVIA OS DADOS) OU 'POST' (NAO ENVIA OS DADOS) action= usa-se a ultima parte do link onde encontra o cadastro  -->
+    <form method="GET" action="/cadastro">
+        <input type="text" name="email" id="email">
+        <input type="text" name="name" id="name">
+        <!-- input de password não se utiliza no method 'get' pq aparece em cima -->
+        <input type="checkbox" name="curso" value="op1">curso react<br>
+        <input type="checkbox" name="curso" value="op2">curso jscript<br>
+        <input type="radio" name="gender" value="m">masc<br>
+        <input type="radio" name="gender" value="f">fem<br>
+        <input type="reset" value="limpar">
+    </form>
+    <form method="get" action="">
+        <select name="estado" id="">
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="SP" selected>São Paulo</option>
+            <textarea name="mensagem" id="" cols="30" rows="10"></textarea>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,40 @@
+@keyframes changeColor {
+    0% { background-color: red; width: 200px; height: 200px;}
+    50% { background-color: blue; width:400px; height: 400px;}
+    100% { background-color: red; width:200px; height: 200px;}
+
+}
+@keyframes movimentar{
+    0% {right: 0px;}
+    100% {right: 300px;}
+}
+/* animation-fill-mode: both;  fixa o ultimo frame da animação*/
+body {
+    display: flex;
+    width: 100vw;
+    justify-content: space-between;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    animation-name: changeColor; /*chama a animação*/
+    animation-duration: 3s;
+    animation-delay: 1s;
+    animation-direction: alternate; /*alterna a ordem da animação*/
+    animation-iteration-count: infinite; /*Faz o loop*/
+   
+}
+.box2 {
+    animation-name: movimentar;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-style: solid;
+    margin-right: 100px;
+
+}

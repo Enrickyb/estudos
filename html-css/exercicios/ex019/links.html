@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links</title>
+    <style>
+        body{ 
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        a{
+            color: red;
+            text-decoration: none; /*tira o sublinhado*/
+            font-weight: bold;
+        }
+        a:visited {
+            color: darkred;
+        } /*ficara vermelho escuro quando visitado*/
+        a:hover { 
+            text-decoration: underline;
+            color: black;
+        } /*ficara sublinhado e preto quando passar o mouse*/
+        a:active {
+            color: yellow;
+        } /*ficara amarelo quando clicar e segurar*/
+        a::before {
+            content: '☛; ';
+            text-decoration: none;
+            font-weight: normal;
+            color: darkgray;
+        }
+        a::after {
+            content: ' ☚;';
+            text-decoration: none;
+            font-weight: normal;
+            color: darkgray;
+        }
+
+
+    </style>
+
+
+
+    
+</head>
+<body>
+    <h1>Personalizando Links</h1>
+    <ul>
+        <li><a href="https://github.com/gustavoguanabara/html-css/tree/master/aulas-pdf" rel="external" target="_blank">Repositório GitHub</a></li>
+        <li><a href="https://www.youtube.com/channel/UCrWvhVmt0Qac3HgsjQK62FQ">Canal do YouTube</a></li>
+        <li><a href="https://www.cursoemvideo.com/">Site do CursoemVideo</a></li>
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="prbr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function mudarcor(){
+            let h = document.getElementsByTagName('h1')[0]
+            h.style.color = 'blue'
+        }
+        function mudartexto(){
+            let h = document.getElementsByTagName('h1')[0]
+            h.innerHTML = 'Novo Titulo'
+
+            setTimeout(mudarcor,1000) //delay pra mudar a cor
+            // setInterval(,3000)
+
+
+        }
+    </script>
+</head>
+<body>
+    <h1>Titulo</h1>
+    <input onclick="mudartexto()" type="submit" value="Mudar">
+</body>
+</html>

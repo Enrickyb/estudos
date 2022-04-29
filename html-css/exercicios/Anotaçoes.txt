@@ -1,0 +1,45 @@
+Para fazer com que ao passar o mouse apareça algum texto usa-se <abbr>
+
+
+Armonia de cores: 
+circulo cromático https://www.google.com/url?sa=i&url=https%3A%2F%2Fcomodesenharecolorir.com%2Fcirculo-cromatico%2F&psig=AOvVaw2L6_te3EfkzVJIHAWWom_9&ust=1645105083506000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNiK7ZashPYCFQAAAAAdAAAAABAD
+
+Primairias: Azul, amarelo e vermelho
+Secundarias: laranja, violeta e verde
+Terciaria: Primaria + Secundária
+
+
+Paleta de cores: Sempre parte de uma cor principal
+
+Contraste: sempre a cor oposta a principal no circulo
+
+PESO DA FONTE: font-weight
+LARGURA: width
+ALTURA: height
+
+Shorthand font:
+font: font-style font-weight font-size font-family
+
+
+
+CENTRALIZAR BOX :   
+        #container{
+            background-image: url(imagens/target001.png);
+            background-size: 100% 100%;
+            position: relative;
+            height: 96vh;
+            background-color: purple;
+            padding: 10px;
+
+        }
+        #conteudo {
+            background-color: yellow;
+            background-image: url(imagens/target001.png);
+            background-size: 100% 100%;
+            position: absolute;
+            height: 200px;
+            width: 400px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            

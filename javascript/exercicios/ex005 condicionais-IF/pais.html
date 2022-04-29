@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="prbr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pais</title>
+</head>
+<body>
+    <h1>Pais em que voce reside:</h1>
+    <input type="text" name="pais" id="pais">
+    <input type="button" value="verificar" onclick="resultado()">
+    <div id="res">
+
+    </div>
+
+
+    <script>
+        function resultado() {
+            var pais = String(document.querySelector("input#pais").value) //onde o cliente interage
+            var res = document.querySelector('div#res') //onde vai ser ''inner' o texto
+            
+            res.innerHTML = `<p>Seu país residente é ${pais} </p>` 
+           
+            if (pais != 'brasil') {
+               res.innerHTML = `<p>Você é estrangeiro</p>`
+            }
+            else {
+                res.innerHTML = `<p>Você é brasileiro</p>`
+            } 
+
+        }
+    </script>
+</body>
+</html>
