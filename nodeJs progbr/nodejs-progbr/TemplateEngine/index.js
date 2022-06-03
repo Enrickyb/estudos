@@ -8,14 +8,19 @@ let user = {
     phone: "(69) 98431-1483"
 }
 
+function render(data, obj){
+    for(let key in obj){
+        data = data.replace(`{{{${key}}}}`, obj[key])
+    }
+
+}
 
 app.get("/", (req, res)=>{
     fs.readFile('./templates/user.html', 'UTF8', (err, data)=>{
         if(!err){
 
-           data = data.replace("Nome", user.name)
-           data = data.replace("Telefone", user.phone) 
-            res.send(data)
+           
+            res.send(render(data, user))
         }
 })})
 
