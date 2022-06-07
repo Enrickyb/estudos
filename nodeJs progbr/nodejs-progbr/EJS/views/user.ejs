@@ -7,7 +7,11 @@
     <title>Usuário</title>
 </head>
 <body>
-    <h1>Igor</h1>
-    <h3>(69)98431-1483</h3>
+    <% for(let user of users){ %> 
+        <% if(user.id % 2 == 0) {%> 
+            <h1><%=user.name%></h1>
+            <h3><%=user.phone%></h3>
+        <% } %>     
+    <% } %> 
 </body>
 </html>
