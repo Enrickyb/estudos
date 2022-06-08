@@ -5,33 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redirection</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1>Add Link</h1>
-    <form action="/edit/<%=body.id%>" method="POST">
-      <input
-        type="text"
-        name="title"
-        placeholder="title"
-        class="field"
-        value="<%=body.title%>"
-      />
-      <input
-        type="text"
-        name="description"
-        placeholder="Description"
-        class="field"
-        value="<%=body.description%>"
-      />
-      <input
-        type="text"
-        name="url"
-        placeholder="URL"
-        class="field"
-        value="<%=body.url%>"
-      />
-      <button>Edit</button>
-    </form>
-    <h3><%= error.message %></h3>
+    <div class="container w-50">
+      <h1>Edit Link</h1>
+      <form
+        class="d-flex flex-column"
+        action="/edit/<%=body.id%>"
+        method="POST"
+      >
+        <input
+          type="text"
+          name="title"
+          placeholder="Title"
+          class="mb-2"
+          value="<%=body.title%>"
+          required
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="Description"
+          class="mb-2"
+          value="<%=body.description%>"
+        />
+        <input
+          type="text"
+          name="url"
+          placeholder="URL"
+          class="mb-4"
+          value="<%=body.url%>"
+          required
+        />
+        <button class="btn btn-primary">Add</button>
+      </form>
+      
+      <% if(error){ %> 
+        <div class="alert alert-danger alert-dismissible fade show mt-3">
+          <strong>Error: </strong><%= error.message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      </div>
+      <% } %> 
+    </div>
+    
   </body>
 </html>

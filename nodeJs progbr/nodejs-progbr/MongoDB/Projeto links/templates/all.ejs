@@ -5,22 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>links</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
+    <div class="container">
     <h1>Links</h1>
     <a href="/add">Adicionar Link</a>
     <% for(let i = 0; i < links.length; i++){ %> 
-        <div id="<%= links[i]._id %>">
-            <form action="/?_method=DELETE"" method="post">
-                <h2><%= links[i].title %> </h2>
-                <h2><%= links[i].description %> </h2>
-                <h2><%= links[i].url %> </h2>
-                <input name="id" value="<%= links[i]._id %>" hidden/>
-                <button type="submit">Delete</button>
-                <a href="/edit/<%=links[i]._id %>">Edit</a>
+        <div class="card p-3 mb-3" id="<%= links[i]._id %>">
+            <form class="d-flex justify-content-between align-items-center" action="/?_method=DELETE"" method="post">
+                <div class="d-flex flex-column">
+                    <h2><%= links[i].title %> </h2>
+                    <div class=""><%= links[i].description %> </div>
+                    <div class="text-muted"><%= links[i].url %> </div>
+                    <div class="text-info"> <i class="material-icons">bar_chart</i> <%= links[i].click %> </div>
+                </div>
+                <div class="d-flex flex-column">
+                    <input name="id" value="<%= links[i]._id %>" hidden/>
+                    <a class="btn btn-info mb-1" href="/edit/<%=links[i]._id %>">Edit</a>
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    
+                </div>
             </form>
         </div>
     <%}%> 
+    </div>
 
 </body>
 </html>

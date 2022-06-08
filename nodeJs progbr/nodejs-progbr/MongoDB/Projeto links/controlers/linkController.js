@@ -4,10 +4,9 @@ const redirect = async (req, res) => {
   let title = req.params.title;
 
   try {
-    let doc = await Link.findOne({ title });
+    let doc = await Link.findOneAndUpdate({ title }, { $inc: { click: 1 } });
     console.log(doc);
-    res.redirect(doc.url)
-
+    res.redirect(doc.url);
   } catch (error) {
     res.send(error);
   }
@@ -18,71 +17,72 @@ const addLink = async (req, res) => {
 
   try {
     let doc = await link.save();
-    res.redirect("/")
+    res.redirect("/");
   } catch (error) {
-    res.render('index', {error, body: req.body});
+    res.render("add", { error, body: req.body });
   }
 };
 
+const allLinks = async (req, res) => {
+  try {
+    let docs = await Link.find({});
+    res.render("all", { links: docs });
+  } catch (error) {
+    res.send(error);
+  }
+};
 
-const allLinks = async(req, res)=>{
-
-    try {
-        let docs = await Link.find({})
-        res.render('all', {links: docs})
-    } catch (error) {
-        res.send(error)
-    }
-}
-
-
-const deleteLink = async(req, res)=>{
-  let id = req.params.id
-  if(!id){
-    id = req.body.id
+const deleteLink = async (req, res) => {
+  let id = req.params.id;
+  if (!id) {
+    id = req.body.id;
   }
   try {
-    await Link.findByIdAndDelete(id)
+    await Link.findByIdAndDelete(id);
     // res.send(id)
-    res.redirect('/')
+    res.redirect("/");
   } catch (error) {
-    res.status(404).send(error)
-   
+    res.status(404).send(error);
   }
-}
-const loadLink = async(req, res)=>{
-  let id = req.params.id
-  if(!id){
-    id = req.body.id
+};
+const loadLink = async (req, res) => {
+  let id = req.params.id;
+  if (!id) {
+    id = req.body.id;
   }
 
   try {
-    let doc = await Link.findByIdAnd(id)
+    let doc = await Link.findById(id);
     // res.send(id)
-    res.render('edit', {error: false, body: doc})
+    res.render("edit", { error: false, body: doc });
   } catch (error) {
-    res.status(404).send(error)
-   
+    res.status(404).send(error);
   }
-}
+};
 const editLink = async (req, res) => {
-  let link = {}
-  link.title = req.body.title
-  link.description = req.body.description
-  link.url = req.body.url
+  let link = {};
+  link.title = req.body.title;
+  link.description = req.body.description;
+  link.url = req.body.url;
 
-  let id = req.params.id
-  if(!id){
-    id = req.body.id
+  let id = req.params.id;
+  if (!id) {
+    id = req.body.id;
   }
 
   try {
-    let doc = await Link.findByIdAndUpdate(id);
-    res.redirect("/")
+    let doc = await Link.updateOne({ _id: id }, link);
+    res.redirect("/");
   } catch (error) {
-    res.render('edit', {error, body: req.body});
+    res.render("edit", { error, body: req.body });
   }
 };
 
-module.exports = {redirect, addLink, allLinks, deleteLink, loadLink, editLink}
-
+module.exports = {
+  redirect,
+  addLink,
+  allLinks,
+  deleteLink,
+  loadLink,
+  editLink,
+};
